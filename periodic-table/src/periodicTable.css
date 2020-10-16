@@ -1,0 +1,8 @@
+/* We are using CSS Grid in this project! The periodic table is made up of columns and rows, so it's perfect! */
+/* The period table has: 18 columns & 7 rows (for the main table) */
+
+.periodic-table_main {
+    display: grid;
+    grid-template-columns: repeat(18, 64px);
+    grid-template-rows: repeat(7, 64px);
+}
