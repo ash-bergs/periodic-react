@@ -1,7 +1,7 @@
 import React, { useState } from 'react'; 
-import './periodicTable.css'; 
-import data from './data/elementsData.json';
-import colorMap from './data/colorMap'; 
+import '../styles/periodicTable.css'; 
+import data from '../data/elementsData.json';
+import colorMap from '../data/colorMap'; 
 import { motion } from 'framer-motion'; 
 
 // const elements = JSON.parse(data); 
