@@ -1,11 +1,20 @@
-import React from 'react';
+import React from 'react'; 
+import { Route, Switch } from 'react-router-dom'; 
+
 import './App.css';
+
+import Dashboard from './Dashboard'; 
+import Navbar from './Navbar'; 
 import PeriodicTable from './PeriodicTable'; 
 
 function App() {
   return (
     <div className="App">
-      <PeriodicTable /> 
+    <Navbar /> 
+      <Switch>
+        <Route path="/dashboard" component={Dashboard} />
+        <Route path="/periodic-table" component={PeriodicTable} /> 
+      </Switch>
     </div>
   );
 }

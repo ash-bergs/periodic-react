@@ -7,7 +7,7 @@
   grid-template-rows: repeat(10, 55px);
   grid-gap: 4px;
   position: absolute;
-  top: 50%;
+  top: 55%;
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: white;
@@ -21,11 +21,6 @@
   align-items: center;
   justify-content: center;
 }
-
-/* .element:hover {
-  transform: scale(1.25, 1.25);
-  z-index: 1;
-} */
 
 .element .number {
   font-size: 8px;
@@ -43,5 +38,8 @@
 
 .welcome {
   font-family: "Lobster", cursive;
-  color: #D81E5B;
+  text-shadow: 2px 2px 2px white;
+  font-size: 2.5rem;
+  color: black;
+  padding: 2%;
 }
