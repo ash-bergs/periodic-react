@@ -4,6 +4,7 @@
   margin: 0; 
   padding: 0; 
   box-sizing: content-box;
+  font-family: 'Source Sans Pro', sans-serif;
 }
 
 .App {
@@ -11,5 +12,4 @@
   width: 100vw;
   height: 100vh;
   position: relative;
-  background: linear-gradient(to bottom right, #97DB4F, #FFA62B);
 }
