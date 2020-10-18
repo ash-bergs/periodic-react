@@ -1,25 +1,42 @@
-import React from 'react'
+import React, { useState } from 'react'; 
 import { Link } from 'react-router-dom'; 
+
+import '../styles/navbar.css'; 
 
 import { menuItems } from '../data/menuItems'; 
 
 const Navbar = () => {
+    {/* to set menu open or closed */}
+    const [ menuToggle, setMenuToggle ] = useState(false); 
+
+    function toggleMenu() {
+        setMenuToggle(!menuToggle); 
+    }
+
     return (
-        <nav className="navbar-items">
-            <span className="logo">
-                <div>{/* this will be a logo image eventually */}</div>
-            </span>
-            {/* we want to do this task once for all of the menu items, instead of having to manually change this code later */}
-            {/* menu items can be found at ../data/menuItems.js */}
-            <ul>
-            {menuItems.map((item) => {
-                return (
-                    <li><Link className={item.clame} to={item.path}>
-                        {item.title}
-                    </Link></li>
-                )
-            })}
-            </ul>
+        <nav className="navbar">
+            <h2 className="logo"><i class="fas fa-vial"></i>Explore</h2>
+            {/* 
+                menu items iterated through to create Links 
+                they can be found in '../data/menuItems.js'
+            */}
+            <div className="links-wrapper">
+                { menuToggle ? 
+                <ul className="navbar-links">
+                {menuItems.map((item, index) => {
+                    return (
+                        <li className="navbar-link" key={index}>
+                            <Link className={item.clame} to={item.path} style={{ order: index}}>
+                                {item.title}
+                            </Link>
+                        </li>
+                    )
+                })}
+                </ul> : null }
+            </div>
+            <div className="menu-icon" onClick={toggleMenu}>
+                <i class={ menuToggle ? "fas fa-times": "fas fa-ellipsis-h"}></i>
+            </div>
         </nav>
     );
 };

@@ -1,0 +1,40 @@
+.navbar {
+    display: flex;
+    height: 5%;
+    width: 100%;
+    color: white;
+    background: rgb(6,84,88);
+    background: linear-gradient(90deg, rgba(6,84,88,1) 0%, rgba(4,142,152,1) 15%, rgba(0,213,173,1) 100%);
+}
+
+/* consider making the align-ing and flex-ing props here into a mixin (Sass) for icons */ 
+
+.logo {
+    align-self: center;
+    flex: 1;
+}
+
+.links-wrapper {
+    flex: 6;
+}
+
+/* this is the ul holding the menu items*/
+.navbar-links {
+    list-style: none;
+    display: flex;
+    align-content: flex-end;
+    justify-content: space-evenly;
+}
+
+.navbar-link {
+    text-decoration: none;
+    justify-self: baseline;
+    font-size: 1.5rem;
+    color: white;
+}
+
+/* open and close menu icon wrapper */
+.menu-icon {
+    align-self: center;
+    flex: 1;
+}
