@@ -1,0 +1,25 @@
+.element-modal {
+    height: 50vh;
+    width: 50vh;
+    top: 20%;
+    left: 35%;
+    transform: translate(-50%);
+    position: absolute;
+    border-radius: 5%;
+    background-color: whitesmoke;
+}
+
+.modal-title {
+    font-size: 2.5rem;
+    font-family: "Lobster", cursive;
+    padding: 2%;
+}
+
+.modal-item {
+    border: 1px solid red;
+    padding: 2%;
+}
+
+.modal-link {
+    text-decoration: none;
+}

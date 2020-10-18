@@ -2,15 +2,16 @@
 /* The period table has: 18 columns & 7 rows (for the main table) */
 .periodic-table_main {
   display: grid;
-  border: 10px solid white;
+  width: 60%;
   grid-template-columns: repeat(18, 55px);
   grid-template-rows: repeat(10, 55px);
   grid-gap: 4px;
-  position: absolute;
+  position: relative;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%);
   background-color: white;
+  justify-content: center;
 }
 
 .element {
