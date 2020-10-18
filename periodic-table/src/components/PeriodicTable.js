@@ -4,11 +4,11 @@ import data from '../data/elementsData.json';
 import colorMap from '../data/colorMap'; 
 import { motion } from 'framer-motion'; 
 
-// const elements = JSON.parse(data); 
+// I want to create a component that tells a user multiple details about an element, maybe in the form of a pop out? 
+
 
 const PeriodicTable = () => {
     const [isOpen, setIsOpen] = useState(false); 
-    {/* This approach works for a menu, but when is isOpen becomes false, ALL the boxes grow to scale. We have to toggle a classname */}
 
     function handleOpen() {
         setIsOpen(!isOpen); 
@@ -16,17 +16,19 @@ const PeriodicTable = () => {
 
     return(
         <div>
-        <h1 className="welcome">The Periodic Table of Elements</h1>
+        <div>
+            <h1 className="welcome">The Periodic Table of Elements</h1>
+        </div>
         <div className="periodic-table_main">
-            {data.elements.map(element => (
+            {data.elements.map((element, index) => (
                 <motion.div 
                 className="periodic-table_element element" 
-                key={element.name}
+                key={index}
                 whileHover={{ scale: 1.5, zIndex: 1 }}
                 style={{ 
                     gridRow: element.ypos, 
                     gridColumn: element.xpos,
-                    borderColor: colorMap[element.category],
+                    borderColor: colorMap[element.category]
                 }}
                 >
                     <strong>{element.symbol}</strong>

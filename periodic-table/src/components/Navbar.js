@@ -6,7 +6,6 @@ import '../styles/navbar.css';
 import { menuItems } from '../data/menuItems'; 
 
 const Navbar = () => {
-    {/* to set menu open or closed */}
     const [ menuToggle, setMenuToggle ] = useState(false); 
 
     function toggleMenu() {
@@ -21,18 +20,16 @@ const Navbar = () => {
                 they can be found in '../data/menuItems.js'
             */}
             <div className="links-wrapper">
-                { menuToggle ? 
-                <ul className="navbar-links">
-                {menuItems.map((item, index) => {
-                    return (
-                        <li className="navbar-link" key={index}>
-                            <Link className={item.clame} to={item.path} style={{ order: index}}>
+                { menuToggle && 
+                <div className="navbar-links">
+                    {menuItems.map((item, index) => {
+                        return (
+                            <Link className={item.clame} to={item.path} style={{ order: index}} key={index}>
                                 {item.title}
-                            </Link>
-                        </li>
-                    )
-                })}
-                </ul> : null }
+                           </Link>
+                            )
+                        })}
+                    </div>}
             </div>
             <div className="menu-icon" onClick={toggleMenu}>
                 <i class={ menuToggle ? "fas fa-times": "fas fa-ellipsis-h"}></i>
