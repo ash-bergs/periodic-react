@@ -22,6 +22,7 @@ It includes the Framer-Motion library
             * How can 1 (or a small number of) rows in a grid be specifically sized, while the others use 'fr'? (in otherwords, specify just some, otherwise auto)
     * The modal needs exit animation 
         * for that I need to research more about framer-motion, and how it circumvents DOM constraints in React
+    * Link sizing for elements with longer summaries 
 
 * Ideas: 
     * Filter the cards you can see (study) based on the elements category 
