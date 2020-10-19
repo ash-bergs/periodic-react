@@ -13,7 +13,7 @@ function App() {
     <Navbar /> 
       <Switch>
         <Route path="/dashboard" component={Dashboard} />
-        <Route path="/periodic-table" component={PeriodicTable} /> 
+        <Route path="/" component={PeriodicTable} /> 
       </Switch>
     </div>
   );
