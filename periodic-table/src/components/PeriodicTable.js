@@ -21,6 +21,9 @@ const PeriodicTable = () => {
         <div className="periodic-table_main">
             {data.elements.map((element, index) => (
                 <motion.div 
+                initial={{ opacity: 0, scale: 0.50 }}
+                animate={{ opacity: 0.95, scale: 1 }}
+                exit={{ opacity: 0, scale: 0 }}
                 className="periodic-table_element element" 
                 key={index}
                 onClick={() => setCurrentElement(element)}
