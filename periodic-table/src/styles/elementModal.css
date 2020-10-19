@@ -1,3 +1,5 @@
+
+/* container */
 .element-modal {
     height: 50vh;
     width: 50vh;
@@ -7,19 +9,75 @@
     position: absolute;
     border-radius: 5%;
     background-color: whitesmoke;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-auto-rows: auto;
+    font-size: 1.4rem;
+    box-shadow: 10px 10px 15px gray;
 }
 
+/* general styles */
+.modal-item {
+    padding: 2%;
+}
+
+.category-flag {
+    font-family: 'Lobster', cursive;
+    font-size: 1.6rem;
+    margin-right: 5%;
+    justify-content: center;
+}
+/* grid items */
 .modal-title {
     font-size: 2.5rem;
     font-family: "Lobster", cursive;
     padding: 2%;
+    grid-column-start: 1;
+    grid-column-end: 6;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    display: flex;
+    justify-content: center;
+    align-self: center;
 }
 
-.modal-item {
-    border: 1px solid red;
-    padding: 2%;
+.button {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    position: absolute;
+    top: 15px;
+    left: 15px;
+}
+
+.category {
+    grid-column-start: 2;
+    grid-column-end: 5;
+    grid-row-start: 3;
+    grid-row-end: 4;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+}
+
+.summary {
+    grid-column-start: 1;
+    grid-column-end: 6;
+    grid-row-start: 4;
+    grid-row-end: 6;
 }
 
 .modal-link {
     text-decoration: none;
+    grid-column-start: 1;
+    grid-column-end: 6;
+    grid-row-start: 8;
+    padding: 2%;
+}
+
+/* close button */
+
+.fa-times-circle {
+    scale: 2;
 }
