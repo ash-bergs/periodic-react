@@ -1,2 +1,6 @@
 # periodic-react
-A little periodic table project using react, and css grid 
+
+A small project to study the Periodic Table of Elements. 
+
+### libraries: 
+*framer-motion, react-router-dom *
