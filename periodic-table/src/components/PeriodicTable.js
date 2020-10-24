@@ -2,19 +2,21 @@ import React, { useState } from 'react';
 import '../styles/periodicTable.css'; 
 import data from '../data/elementsData.json';
 import colorMap from '../data/colorMap'; 
-import { AnimatePresence ,motion } from 'framer-motion'; 
+import { motion } from 'framer-motion'; 
 
 import ElementModal from './ElementModal'; 
-
-// I want to create a component that tells a user multiple details about an element, maybe in the form of a pop out? 
-// do I need to set a slice of state for the element, and render a new component based on the element in state? 
-
+import StudyList from './StudyList';
 
 const PeriodicTable = () => {
     const [currentElement, setCurrentElement] = useState(null); 
+    // studyList starts out as an empty array - when an element is added it will be in the form of an object
+    const [studyList, setStudyList] = useState([]); 
 
     return(
         <div className="page-wrapper">
+        <div style={{ float: 'right', border: '1px solid red', width: '10vw'}}>
+            <StudyList studyList={studyList}/>
+        </div>
         <div>
             <h1 className="welcome">The Periodic Table of Elements</h1>
         </div>
@@ -39,7 +41,9 @@ const PeriodicTable = () => {
                     <small className="name">{element.name}</small>
                 </motion.div>))}
         </div>
-               {currentElement ? <ElementModal element={currentElement} setCurrentElement={setCurrentElement}/> : null }
+               {currentElement ? 
+                <ElementModal element={currentElement} setCurrentElement={setCurrentElement} studyList={studyList} setStudyList={setStudyList}/> 
+                : null }
         </div>
     );
 };

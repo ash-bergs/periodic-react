@@ -38,9 +38,11 @@
 }
 
 .welcome {
-  font-family: "Lobster", cursive;
+  font-family: "Montserrat", sans-serif;
+  font-weight: bold;
   text-shadow: 2px 2px 2px white;
-  font-size: 3.5rem;
+  font-size: 3rem;
   color: black;
   padding: 2%;
+  float: left;
 }

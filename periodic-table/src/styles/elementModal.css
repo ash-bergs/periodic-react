@@ -1,8 +1,8 @@
 
 /* container */
 .element-modal {
-    height: 50vh;
-    width: 50vh;
+    height: 75vh;
+    width: 60vh;
     top: 20%;
     left: 35%;
     transform: translate(-50%);
@@ -13,7 +13,7 @@
     grid-template-columns: repeat(5, 1fr);
     grid-auto-rows: auto;
     font-size: 1.4rem;
-    box-shadow: 10px 10px 15px gray;
+    box-shadow: 10px 10px 15px #BFBDC1;
 }
 
 /* general styles */
@@ -22,7 +22,6 @@
 }
 
 .category-flag {
-    font-family: 'Lobster', cursive;
     font-size: 1.6rem;
     margin-right: 5%;
     justify-content: center;
@@ -30,7 +29,6 @@
 /* grid items */
 .modal-title {
     font-size: 2.5rem;
-    font-family: "Lobster", cursive;
     padding: 2%;
     grid-column-start: 1;
     grid-column-end: 6;
@@ -41,7 +39,7 @@
     align-self: center;
 }
 
-.button {
+.close-button {
     grid-column-start: 1;
     grid-column-end: 2;
     grid-row-start: 1;
@@ -65,19 +63,38 @@
     grid-column-start: 1;
     grid-column-end: 6;
     grid-row-start: 4;
-    grid-row-end: 6;
+    grid-row-end: 20;
+}
+
+.add-button, .confirm-card {
+    grid-row-start: 21;
+    grid-row-end: 21;
+    grid-column-start: 2;
+    grid-column-end: 5;
 }
 
 .modal-link {
     text-decoration: none;
     grid-column-start: 1;
     grid-column-end: 6;
-    grid-row-start: 8;
+    grid-row-start: 23;
+    grid-row-end: 23;
     padding: 2%;
 }
 
 /* close button */
 
 .fa-times-circle {
-    scale: 2;
+    font-size: 2.5rem;
+}
+
+/* Status class name is for elements that are for giving the user some information */ 
+
+.status {
+    color: #337CA0;
+    font-weight: bold;
+}
+
+.callout-text {
+    color: #337CA0;
 }
