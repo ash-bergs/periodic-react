@@ -14,7 +14,7 @@ const Navbar = () => {
 
     return (
         <nav className="navbar">
-            <h2 className="logo"><i class="fas fa-vial"></i>Explore</h2>
+            <h2 className="logo"><i className="fas fa-vial"></i>Explore</h2>
             {/* 
                 menu items iterated through to create Links 
                 they can be found in '../data/menuItems.js'
@@ -32,7 +32,7 @@ const Navbar = () => {
                     </div>}
             </div>
             <div className="menu-icon" onClick={toggleMenu}>
-                <i class={ menuToggle ? "fas fa-times": "fas fa-ellipsis-h"}></i>
+                <i className={ menuToggle ? "fas fa-times": "fas fa-ellipsis-h"}></i>
             </div>
         </nav>
     );

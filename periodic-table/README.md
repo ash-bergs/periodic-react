@@ -20,9 +20,14 @@ It includes the Framer-Motion library
             * What shorthand properties can I use to achieve more fluid grid development? 
             * How well does Sass mixins and functions work with grid generation? 
             * How can 1 (or a small number of) rows in a grid be specifically sized, while the others use 'fr'? (in otherwords, specify just some, otherwise auto)
-    * The modal needs exit animation 
+    * *Later*The modal needs exit animation 
         * for that I need to research more about framer-motion, and how it circumvents DOM constraints in React
-    * Link sizing for elements with longer summaries 
+    * Link sizing for elements with longer summaries
+
+* Current Branch [study-list]:
+    * This component will render a list of elements that a user has stored so they can more closely review them. 
+    * A slice of state must be made to save certain elements to an array. - [savedElements]
+    * The state will be initialized in the PeriodTable component, and passed to the StudyList component
 
 * Ideas: 
     * Filter the cards you can see (study) based on the elements category 
