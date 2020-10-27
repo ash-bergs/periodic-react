@@ -3,6 +3,7 @@
 .periodic-table_main {
   display: grid;
   width: 60%;
+  margin-top: 3%;
   grid-template-columns: repeat(18, 55px);
   grid-template-rows: repeat(10, 55px);
   grid-gap: 4px;
@@ -31,7 +32,7 @@
 }
 
 .element .name {
-  font-size: 8px;
+  font-size: 7px;
   position: absolute;
   bottom: 5px;
   left: 5px;

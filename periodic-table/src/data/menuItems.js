@@ -1,7 +1,7 @@
 export const menuItems = [
     {
         title: "Learn", 
-        path: "/periodic-table",
+        path: "/learn",
         clame: "navbar-link"
     },
     // {

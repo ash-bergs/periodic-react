@@ -1,32 +1,34 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-It includes the Framer-Motion library
 
-### Periodic Table of Elements 
-*with react and grid* 
+### Periodic Table of Elements ~ with React, CSS Grid, & LocalStorage ~
 
-* The aim of this project: 
-    * Learn about CSS Grid, and how to quickly, responsively create grid layouts 
-    * Learn more about adding smooth animations to make a page feel more 'alive' 
-    * Create a fun little periodic table app that any 8th grader will appreciate come study time 😜
+#### Project Goal: 
+* Learn about CSS Grid, and how to quickly, responsively create grid layouts 
+* Learn more about adding smooth animations to make a page feel more 'alive' 
+* Implement Local Storage to create persistant data without a backend
+* Create a fun little periodic table app that anyone in a basic chemistry class could appreciate 🧪🔬
 
-* Struggles: 
-    * Managing the state of isOpen on the Element Modal component. Originally I was managing it on the Periodic Table component, but this created some bugs when it related to resetting the currentElement in state. 
-        * **Resolution**: The Periodic Table component no longer has to be concerned with the status of isOpen, it is completely controlled by the modal. While the Periodic Table concerns itself with the element data. 
+### Struggles: 
+
+* Managing the state of isOpen on the Element Modal component. 
+    * **Problem**: Originally I was managing it on the Periodic Table component, but this created some bugs when it related to resetting the currentElement in state. 
+    * **Resolution**: The Periodic Table component no longer has to be concerned with the status of isOpen, it is completely controlled by the modal. While the Periodic Table concerns itself with the element data. 
+* Students want to create a stack of flashcards so they can review those pesky, hard to remember elements. 
+    * **Problem**: Right now I'm just props-drilling an array to store elements in. The modal is the component that manages the studyList state, but the FlashCards component will be the one to consume it. 
+    * **Resolution**: Implementing Local Storage to give the flashcards some *data persistence*  
+    * **Implementation Problems**: When trying to set the flashcards state into Local Storage, there is a specific issue: The cards are only saved after a manual refresh. They are successfully added, and appear in the local storage tab, but when navigating from the component to another, and then back, those elements are gone. What am I doing wrong here? 
+        * What it could be: Though I can't say why, I have a suspicion this is a problem in the useEffect hook in PeriodicTable. Currently the flashcards array is set up as a dependency array. I am doing this because it should run the hook again when the array updates, saving the changes. It is not working like I expected. Why is that? 
 
 * What Needs Work: 
-    * In my CSS, particularly on the Element Modal, my grid CSS is a mess. 
-        * Grid items themselves are using flexbox inside themselves.. there must be a smoother way to center the text items in the elemendts. *research needed*
-        * The Grid is set up in a way that I find hard to follow. 
-            * What shorthand properties can I use to achieve more fluid grid development? 
-            * How well does Sass mixins and functions work with grid generation? 
-            * How can 1 (or a small number of) rows in a grid be specifically sized, while the others use 'fr'? (in otherwords, specify just some, otherwise auto)
-    * *Later*The modal needs exit animation 
-        * for that I need to research more about framer-motion, and how it circumvents DOM constraints in React
-    * Link sizing for elements with longer summaries
+    * The CSS, particularly on the Element Modal, is a mess. 
+        * Grid items themselves are using flexbox inside themselves.. there must be a smoother way to center the text items in the elemendts.
+    * [*Later*] The modal needs exit animation 
+        * for that - research more about framer-motion, and how it circumvents DOM constraints in React
+    * Link sizing for elements with longer summaries [✅ dealt with this in the grid layout, there must be a more eloquent way to plan a grid though. Research!]
 
 * Current Branch [study-list]:
     * This component will render a list of elements that a user has stored so they can more closely review them. 
-    * A slice of state must be made to save certain elements to an array. - [savedElements]
+    * A slice of state must be made to save certain elements to an array. - [flashcards]
     * The state will be initialized in the PeriodTable component, and passed to the StudyList component
 
 * Ideas: 
