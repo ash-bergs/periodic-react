@@ -3,22 +3,25 @@ import { AnimatePresence, motion } from 'framer-motion';
 
 import '../styles/elementModal.css'; 
 
-const ElementModal = ({ element, setCurrentElement, studyList, setStudyList }) => {
+const ElementModal = ({ element, setCurrentElement, flashcards, setFlashcards }) => {
+    //* slice of state managing the status of the modal 
     const [isOpen, setIsOpen] = useState(true); 
 
+    //* handler to reset the current element in PeriodicTable's state - the current element is the one featured in the modal
     const handleOpen = (e) => {
         e.preventDefault();
         setIsOpen(false); 
         setCurrentElement(null); 
     }; 
 
-    const addCard = (e) => {
+    //* handler to add a new element to the flashcards - checks if the element is already there
+    const addFlashcard = (e) => {
         e.preventDefault();
-        const newStudyList = [...studyList]; 
-        if (newStudyList.includes(element) === false){
-            newStudyList.push(element); 
+        const newFlashcards = [...flashcards]; 
+        if (newFlashcards.includes(element) === false){
+            newFlashcards.push(element); 
         }
-        setStudyList(newStudyList); 
+        setFlashcards(newFlashcards); 
     }
 
     return (
@@ -53,10 +56,10 @@ const ElementModal = ({ element, setCurrentElement, studyList, setStudyList }) =
                         {
                             // logic for adding an element to the flashcard stack
                         }
-                        { (studyList.includes(element) === false) ? 
+                        { (localStorage.getItem('flashcards').includes(element.name) === false) ? 
                             <motion.button
                             className="add-button study-button"
-                            onClick={addCard}
+                            onClick={addFlashcard}
                             whileHover={{ scale: 1.2 }}
                             >
                             <p>Add flashcard</p>
@@ -70,7 +73,7 @@ const ElementModal = ({ element, setCurrentElement, studyList, setStudyList }) =
                         className="modal-link" 
                         alt="wikipedia" 
                         whileHover={{ scale: 1.5, color: '#E8D33F'}}
-                        target="_blank">Learn More <i className="fas fa-external-link-square-alt"/></motion.a> {/*.learn-more - 5th element on the grid*/}
+                        target="_blank">Learn More <i className="fas fa-external-link-square-alt"/></motion.a> 
                     </motion.div>
                     )}
         </AnimatePresence>

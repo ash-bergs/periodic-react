@@ -1,4 +1,4 @@
-import React, { useState } from 'react'; 
+import React, { useState, useEffect } from 'react'; 
 import '../styles/periodicTable.css'; 
 import data from '../data/elementsData.json';
 import colorMap from '../data/colorMap'; 
@@ -7,19 +7,30 @@ import { motion } from 'framer-motion';
 import ElementModal from './ElementModal'; 
 import StudyList from './StudyList';
 
+const localFlashcards = localStorage.getItem('flashcards') ? JSON.parse(localStorage.getItem('flashcards')) : []; 
+
 const PeriodicTable = () => {
+    //* slice of state managing the current element in the modal
     const [currentElement, setCurrentElement] = useState(null); 
-    // studyList starts out as an empty array - when an element is added it will be in the form of an object
-    const [studyList, setStudyList] = useState([]); 
+    
+    //* slice of state to add elements to a stack of flashcards stored in local storage 
+    const [flashcards, setFlashcards] = useState(localFlashcards);   
+
+
+//* putting the flashcards in state into local storage for data persistence *// 
+    useEffect(() => {
+        localStorage.setItem('flashcards', JSON.stringify(flashcards))
+    }, [flashcards]); 
 
     return(
         <div className="page-wrapper">
-        <div style={{ float: 'right', border: '1px solid red', width: '10vw'}}>
-            <StudyList studyList={studyList}/>
+        {
+            //! make sure to abstract this styling into CSS/SASS later !
+        }
+        <div style={{ border: '1px solid red', width: '10vw', position: 'absolute'}}>
+            <StudyList flashcards={flashcards}/>
         </div>
-        <div>
-            <h1 className="welcome">The Periodic Table of Elements</h1>
-        </div>
+        
         <div className="periodic-table_main">
             {data.elements.map((element, index) => (
                 <motion.div 
@@ -29,7 +40,7 @@ const PeriodicTable = () => {
                 className="periodic-table_element element" 
                 key={index}
                 onClick={() => setCurrentElement(element)}
-                whileHover={{ scale: 1.5, zIndex: 1 }}
+                whileHover={{ scale: 2.5, zIndex: 1 }}
                 style={{ 
                     gridRow: element.ypos, 
                     gridColumn: element.xpos,
@@ -42,7 +53,7 @@ const PeriodicTable = () => {
                 </motion.div>))}
         </div>
                {currentElement ? 
-                <ElementModal element={currentElement} setCurrentElement={setCurrentElement} studyList={studyList} setStudyList={setStudyList}/> 
+                <ElementModal element={currentElement} setCurrentElement={setCurrentElement} flashcards={flashcards} setFlashcards={setFlashcards}/> 
                 : null }
         </div>
     );
